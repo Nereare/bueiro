@@ -4,7 +4,7 @@
 <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href="{{ path("homepage") }}">
-      <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+      <img src="{{ asset("Icon-White.png") }}">
     </a>
 
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -50,15 +50,19 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-          <a class="button is-primary">
-            <strong>Sign up</strong>
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+          <a class="button is-light" href="{{ path("user_profile") }}">
+            {{ app.user.username }}
           </a>
-          <a class="button is-light">
+        {% else %}
+          <a class="button is-light" href="{{ path("app_login") }}">
             Log in
           </a>
+        {% endif %}
         </div>
       </div>
     </div>
+
   </div>
 </nav>
 
@@ -74,12 +78,6 @@
       <strong>Bulma</strong>
       by
       <a href="https://jgthms.com">Jeremy Thomas</a>.
-    </p>
-    <p>
-      The source code is licensed
-      <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
-              is licensed
-      <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
     </p>
   </div>
 </footer>

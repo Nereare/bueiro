@@ -1,8 +1,12 @@
 @import "~normalize.css";
 @import "~@fontsource/montserrat";
+@import "~@mdi/font/scss/materialdesignicons.scss";
 
 $primary: #013a63;
 $link: #5e548e;
 $family-sans-serif: "Montserrat";
 
 @import "~bulma";
+@import "~bulma-checkradio";
+@import "~bulma-switch";
+@import "~@creativebulma/bulma-divider";
