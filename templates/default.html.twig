@@ -3,7 +3,7 @@
 {% block body %}
 <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="{{ path("homepage") }}">
+    <a class="navbar-item" href="{{ path('homepage') }}">
       <img src="{{ asset("Icon-White.png") }}">
     </a>
 
@@ -16,49 +16,81 @@
 
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
-      <a class="navbar-item">
-        Home
+      <a class="navbar-item" href="{{ path('door_main') }}">
+        <span class="icon-text">
+          <span class="icon">
+            <i class="mdi mdi-human-wheelchair mdi-18px"></i>
+          </span>
+          <span>Porta</span>
+        </span>
       </a>
 
       <a class="navbar-item">
-        Documentation
+        <span class="icon-text">
+          <span class="icon">
+            <i class="mdi mdi-bed mdi-18px"></i>
+          </span>
+          <span>Observação</span>
+        </span>
       </a>
 
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          More
-        </a>
+      <a class="navbar-item">
+        <span class="icon-text">
+          <span class="icon">
+            <i class="mdi mdi-calculator-variant mdi-18px"></i>
+          </span>
+          <span>Calculadoras</span>
+        </span>
+      </a>
 
-        <div class="navbar-dropdown">
-          <a class="navbar-item">
-            About
-          </a>
-          <a class="navbar-item">
-            Jobs
-          </a>
-          <a class="navbar-item">
-            Contact
-          </a>
-          <hr class="navbar-divider">
-          <a class="navbar-item">
-            Report an issue
-          </a>
-        </div>
-      </div>
+      <a class="navbar-item">
+        <span class="icon-text">
+          <span class="icon">
+            <i class="mdi mdi-controller mdi-18px"></i>
+          </span>
+          <span>Passatempos</span>
+        </span>
+      </a>
     </div>
 
     <div class="navbar-end">
-      <div class="navbar-item">
-        <div class="buttons">
-        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-          <a class="button is-light">
-            {{ app.user.username }}
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          <span class="icon-text">
+            <span class="icon">
+              <i class="mdi mdi-account mdi-18px"></i>
+            </span>
+            <span>{{ app.user.username }}</span>
+          </span>
+        </a>
+
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="#">
+            <span class="icon-text">
+              <span class="icon">
+                <i class="mdi mdi-cog mdi-18px"></i>
+              </span>
+              <span>Config</span>
+            </span>
           </a>
-        {% else %}
-          <a class="button is-light" href="{{ path("login_main") }}">
-            Log in
+
+          <a class="navbar-item" href="#">
+            <span class="icon-text">
+              <span class="icon">
+                <i class="mdi mdi-account-box-edit-outline mdi-18px"></i>
+              </span>
+              <span>Perfil</span>
+            </span>
           </a>
-        {% endif %}
+
+          <a class="navbar-item" href="{{ path('_logout_main') }}">
+            <span class="icon-text">
+              <span class="icon">
+                <i class="mdi mdi-logout mdi-18px"></i>
+              </span>
+              <span>Sair</span>
+            </span>
+          </a>
         </div>
       </div>
     </div>
@@ -75,9 +107,13 @@
 <footer class="footer">
   <div class="content has-text-centered">
     <p>
-      <strong>Bulma</strong>
-      by
-      <a href="https://jgthms.com">Jeremy Thomas</a>.
+      <strong>Bueiro</strong>
+      por
+      <a href="https://nereare.com">Igor Padoim</a>.
+    </p>
+    <p>
+      O código-fonte está licenciado sob a
+      <a href="https://firstdonoharm.dev/">Licença Hipocrática</a>.
     </p>
   </div>
 </footer>
