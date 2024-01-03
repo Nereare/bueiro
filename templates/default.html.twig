@@ -51,11 +51,11 @@
       <div class="navbar-item">
         <div class="buttons">
         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-          <a class="button is-light" href="{{ path("user_profile") }}">
+          <a class="button is-light">
             {{ app.user.username }}
           </a>
         {% else %}
-          <a class="button is-light" href="{{ path("app_login") }}">
+          <a class="button is-light" href="{{ path("login_main") }}">
             Log in
           </a>
         {% endif %}

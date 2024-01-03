@@ -19,8 +19,8 @@ security:
       login_throttling:
         max_attempts: 3
       form_login:
-        login_path: app_login
-        check_path: app_login
+        login_path: login_main
+        check_path: login_main
         enable_csrf: true
       logout:
         path: /logout
