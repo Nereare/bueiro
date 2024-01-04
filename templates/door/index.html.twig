@@ -1,0 +1,73 @@
+{% extends "default.html.twig" %}
+
+{% block contents %}
+<div class="columns">
+  <div class="column is-8">
+    <div class="box">
+      <div class="field">
+        <div class="control is-expanded">
+          <a class="button is-link is-fullwidth" href="{{ path('door_create_patient') }}">
+            <span class="icon-text">
+              <span class="icon">
+                <i class="mdi mdi-account-plus"></i>
+              </span>
+              <span>Novo Paciente</span>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Patients -->
+      <table class="table is-striped is-hoverable is-fullwidth">
+        <thead>
+          <tr>
+            <th>Ações</th>
+            <th>Nome</th>
+            <th><i class="mdi mdi-clock"></i></th>
+            <th>Pendências</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% if patients | length < 1 %}
+          <tr>
+            <td colspan="4" class="has-text-centered">Sem pacientes~</td>
+          </tr>
+        {% else %}
+        {% for patient in patients %}
+          <tr>
+            <td class="field has-addons">
+              <div class="control">
+                <button class="button is-small is-success">
+                  <span class="icon">
+                    <i class="mdi mdi-file-plus mdi-18px"></i>
+                  </span>
+                </button>
+              </div>
+              <div class="control">
+                <button class="button is-small is-danger">
+                  <span class="icon">
+                    <i class="mdi mdi-close mdi-18px"></i>
+                  </span>
+                </button>
+              </div>
+            </td>
+            <td>{{ patient.name }}</td>
+            <td>{{ patient.appointStart | format_time('short', locale='pt-BR') }}</td>
+            <td>{{ patient.todo }}</td>
+          </tr>
+        {% endfor %}
+        {% endif %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="box">
+      <div class="content">
+        <p>Hi</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
