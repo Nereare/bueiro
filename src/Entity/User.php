@@ -48,6 +48,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255)]
     private ?string $email = null;
 
+    #[ORM\Column(length: 16)]
+    private ?string $classificationPre = null;
+
+    #[ORM\Column(length: 16, nullable: true)]
+    private ?string $classificationPos = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -186,6 +192,30 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setEmail(string $email): static
     {
         $this->email = $email;
+
+        return $this;
+    }
+
+    public function getClassificationPre(): ?string
+    {
+        return $this->classificationPre;
+    }
+
+    public function setClassificationPre(string $classificationPre): static
+    {
+        $this->classificationPre = $classificationPre;
+
+        return $this;
+    }
+
+    public function getClassificationPos(): ?string
+    {
+        return $this->classificationPos;
+    }
+
+    public function setClassificationPos(?string $classificationPos): static
+    {
+        $this->classificationPos = $classificationPos;
 
         return $this;
     }

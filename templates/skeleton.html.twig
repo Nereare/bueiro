@@ -17,15 +17,18 @@
     <meta name="theme-color" content="#013a63">
     <!-- / Favicon -->
 
-    {% block stylesheets %}
-      {{ encore_entry_link_tags('app') }}
-    {% endblock %}
+    {{ encore_entry_link_tags("app") }}
+    {% block stylesheets %}{% endblock %}
 
-    {% block javascripts %}
-      {{ encore_entry_script_tags('app') }}
-    {% endblock %}
+    {{ encore_entry_script_tags("app") }}
+    {% block javascripts %}{% endblock %}
   </head>
   <body>
     {% block body %}{% endblock %}
+
+    <div class="notification is-hidden" id="msg">
+      <button class="delete"></button>
+      <p>Foo bar</p>
+    </div>
   </body>
 </html>

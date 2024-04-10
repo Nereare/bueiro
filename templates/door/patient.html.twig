@@ -1,5 +1,9 @@
 {% extends "default.html.twig" %}
 
+{% block javascripts %}
+  {{ encore_entry_script_tags("patient") }}
+{% endblock %}
+
 {% block contents %}
 <div class="box">
   <h2 class="title is-3">
@@ -11,9 +15,81 @@
     </span>
   </h2>
 
-  {{ form_errors(form) }}
+  <input type="hidden" id="save-link" value="{{ path('door_save_patient') }}">
+  <input type="hidden" id="redirect-link" value="{{ path('door_evolution') }}">
 
-  {{ form(form) }}
+  <div class="field">
+    <div class="control is-expanded">
+      <input type="text" class="input" id="name" placeholder="Nome" required>
+    </div>
+  </div>
 
+  <div class="columns mb-0">
+    <div class="column">
+      <div class="field">
+        <div class="control is-expanded">
+          <input type="date" class="input" id="dob" placeholder="Nascimento" required>
+        </div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="field">
+        <div class="control is-expanded">
+          <div class="select is-fullwidth">
+            <select id="sex" required>
+              <option value="" selected disabled>Sexo Biológico</option>
+              <option value="f">Fêmea</option>
+              <option value="m">Macho</option>
+              <option value="i">Intersexo</option>
+              <option value="x">Outro</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="field">
+        <div class="control is-expanded">
+          <div class="select is-fullwidth">
+            <select id="gender" required>
+              <option value="" selected disabled>Gênero</option>
+              <option value="a">Feminino</option>
+              <option value="o">Masculino</option>
+              <option value="e">Outro</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="control is-expanded">
+      <div class="select is-fullwidth">
+        <select id="classificationPre" required>
+          <option value="" selected disabled>Classificação inicial</option>
+          <option value="na">N/A</option>
+          <option value="blue">Azul</option>
+          <option value="green">Verde</option>
+          <option value="yellow">Amarelo</option>
+          <option value="orange">Laranja</option>
+          <option value="red">Vermelho</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="control is-expanded">
+      <button class="button is-fullwidth is-success" id="submit">
+        <span class="icon-text">
+          <span class="icon">
+            <i class="mdi mdi-account-plus"></i>
+          </span>
+          <span>Criar</span>
+        </span>
+      </button>
+    </div>
+  </div>
 </div>
 {% endblock %}

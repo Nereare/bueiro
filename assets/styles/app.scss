@@ -10,3 +10,11 @@ $family-sans-serif: "Montserrat";
 @import "~bulma-checkradio";
 @import "~bulma-switch";
 @import "~@creativebulma/bulma-divider";
+
+#msg {
+  width: 20em;
+  position: absolute;
+  top: 5rem;
+  right: 2rem;
+  z-index: 100;
+}
