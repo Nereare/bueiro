@@ -42,6 +42,7 @@ class DoorController extends AbstractController {
     $patient->setGender($request->request->get("gender"));
     $patient->setAppointDate(new \DateTime());
     $patient->setAppointStart(new \DateTime());
+    $patient->setClassificationPre($request->request->get("classificationPre"));
 
     $errors = $validatorInterface->validate($patient);
 

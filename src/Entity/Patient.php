@@ -41,6 +41,12 @@ class Patient
     #[ORM\Column(nullable: true)]
     private ?array $todo = null;
 
+    #[ORM\Column(length: 16)]
+    private ?string $classificationPre = null;
+
+    #[ORM\Column(length: 16, nullable: true)]
+    private ?string $classificationPos = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -68,6 +74,18 @@ class Patient
         $this->dob = $dob;
 
         return $this;
+    }
+
+    public function getAge(): string
+    {
+        $dob = $this->dob;
+        $today = new \DateTime();
+        $diff = $today->diff($dob);
+        $age["y"] = $diff->y . "a";
+        $age["m"] = ($diff->m > 0) ? $diff->m . "m" : "";
+        $age["d"] = ($diff->d > 0) ? $diff->d . "d" : "";
+        $age = "{$age['y']}{$age['m']}{$age['d']}";
+        return $age;
     }
 
     public function getSex(): ?string
@@ -150,6 +168,30 @@ class Patient
     public function setTodo(?array $todo): static
     {
         $this->todo = $todo;
+
+        return $this;
+    }
+
+    public function getClassificationPre(): ?string
+    {
+        return $this->classificationPre;
+    }
+
+    public function setClassificationPre(string $classificationPre): static
+    {
+        $this->classificationPre = $classificationPre;
+
+        return $this;
+    }
+
+    public function getClassificationPos(): ?string
+    {
+        return $this->classificationPos;
+    }
+
+    public function setClassificationPos(?string $classificationPos): static
+    {
+        $this->classificationPos = $classificationPos;
 
         return $this;
     }
