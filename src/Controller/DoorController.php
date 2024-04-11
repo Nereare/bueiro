@@ -67,11 +67,13 @@ class DoorController extends AbstractController {
     return new JsonResponse($return);
   }
 
-  #[Route("/door/evolution/{patient}", name: "door_evolution")]
-  public function doEvolution(
-    int $patient = 0
+  #[Route("/door/evolution/{id}", name: "door_evolution")]
+  public function newEvolution(
+    Patient $patient
   ): Response {
-    return $this->render("door/evolution.html.twig");
+    return $this->render("door/evolution.html.twig", [
+      "patient" => $patient
+    ]);
   }
 
 }

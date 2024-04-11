@@ -18,3 +18,22 @@ $family-sans-serif: "Montserrat";
   right: 2rem;
   z-index: 100;
 }
+
+/* Classification highlight */
+$na: hsl(0, 0%, 21%);
+$blue: hsl(217, 71%, 53%);
+$green: hsl(141, 71%, 48%);
+$yellow: hsl(48, 100%, 67%);
+$orange: hsl(18, 100, 67);
+$red: hsl(348, 100%, 61%);
+.classification {
+  border-left-width: 0.5rem;
+  border-left-style: solid;
+
+  &.na { border-left-color: $na; }
+  &.blue { border-left-color: $blue; }
+  &.green { border-left-color: $green; }
+  &.yellow { border-left-color: $yellow; }
+  &.orange { border-left-color: $orange; }
+  &.red { border-left-color: $red; }
+}

@@ -1,0 +1,56 @@
+{% extends "default.html.twig" %}
+
+{% block javascripts %}
+  {{ encore_entry_script_tags("evolution") }}
+{% endblock %}
+
+{% block contents %}
+<div class="box classification {{ patient.classificationPre }}">
+  <h2 class="title is-3">
+    <span class="icon-text">
+      <span class="icon">
+        <i class="mdi mdi-file-plus"></i>
+      </span>
+      <span>Novo Atendimento</span>
+    </span>
+  </h2>
+
+  <nav class="breadcrumb is-centered has-bullet-separator">
+    <ul>
+      <li>
+        <a>
+          <span class="icon-text">
+            <span class="icon">
+              <i class="mdi mdi-account"></i>
+            </span>
+            <span>{{ patient.getName }}</span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a>
+          <span class="icon-text">
+            <span class="icon">
+              <i class="mdi mdi-pound"></i>
+            </span>
+            <span>{{ patient.getAge }}</span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a>
+          <span class="icon">
+            {% if patient.getSex == "f" %}
+            <i class="mdi mdi-gender-female"></i>
+            {% elseif patient.getSex == "m" %}
+            <i class="mdi mdi-gender-male"></i>
+            {% else %}
+            <i class="mdi mdi-gender-transgender"></i>
+            {% endif %}
+          </span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+{% endblock %}
